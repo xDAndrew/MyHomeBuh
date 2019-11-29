@@ -1,6 +1,6 @@
-﻿// 1.  Когда я добавляю или отнимаю деньги, я должен ввести текстовое сообщение.
-//2.  Когда я вызываю метод History я должен получить историю(дату, время, сообщение сумма) 
-//3.  Консольное преложения должно вывести всю мою историю (платежь красным цветом, пополнение зеленым)
+﻿
+using AppSumm1._0.Interface;
+using AppSumm1._0.Model;
 using System;
 using System.Collections.Generic;
 
@@ -8,9 +8,15 @@ namespace AppSumm1._0
 {
     public class Payment:IPayment
     {
+        public Payment( IRepository repository)
+        {
+            _repository = repository;
+            Summ = repository.LoadHistory().Summ;
+            History = repository.LoadHistory().Logs;
+        }
+        private IRepository _repository;
         private decimal Summ = 0;
         private List<Log> History = new List<Log>();
-        public Log account;
         public decimal GetSumm()
         {
             return Summ;
@@ -21,6 +27,7 @@ namespace AppSumm1._0
             {
                 Summ -= payment.money;
                 History.Add(payment);
+                _repository.SaveHistory(new DbModel() { Summ=Summ, Logs=History});
             } else
             Console.WriteLine("У вас не достаточно средств");
         }
@@ -29,6 +36,7 @@ namespace AppSumm1._0
             payment.incoment = true;
             Summ += payment.money;
             History.Add(payment);
+            _repository.SaveHistory(new DbModel() { Summ = Summ, Logs = History});
         }
         public List<Log> GetHistory()
         {

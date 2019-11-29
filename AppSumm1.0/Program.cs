@@ -1,13 +1,14 @@
 ﻿using System;
-
+using System.IO;
 namespace AppSumm1._0
 {
     class Program
     {
         static void Main(string[] args)
         {
-            IPayment payment = new Payment();
-          
+           
+            IPayment payment = new Payment(new Repository());
+                      
             payment.AddMoney(new Log() { money=125, message="Украл"});
             payment.AddMoney(new Log() { money = 125, message = "Аванс" });
             payment.AddMoney(new Log() { money = 125, message = "Зарплата" });
@@ -26,6 +27,6 @@ namespace AppSumm1._0
                 Console.ResetColor();
             }
             Console.WriteLine($"Остаток денег:{payment.GetSumm()}$");
-        }
+         }
     }
 }
