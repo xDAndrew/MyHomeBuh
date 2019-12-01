@@ -1,11 +1,8 @@
-﻿using AppSumm1._0.Interface;
-using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
 namespace AppSumm1._0
 {
-     public interface IPayment
+    public interface IPayment
      {
          void Withdraw(Log payment);
          void AddMoney(Log payment);

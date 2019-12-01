@@ -1,36 +1,33 @@
-﻿using AppSumm1._0.Service;
-using System;
+﻿// 1. Написать API метод в Home контроллере, который называется GetSumm и возвращает текущую сумму на счету
+// 2. Написать API метод в Home контроллере, который называется GetStatistic и возвращает сумму платежей и сумму пополнений
+// 3. Написать API метод в Home контроллере, который возвращает разность платежей и пополнений
+// 4. Пункты 2 и 3 выводят статистику только за текущий месяц (DateTime.Now.Month)
+// 5. Сделать Pull Request
+using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Builder;
+using System.Net;
+
 namespace AppSumm1._0
 {
     class Program
     {
         static void Main(string[] args)
         {
-           
-            IPayment payment = new Payment(new Repository());
-            var statistic = new Statistic(payment);
-            var historyMonth= statistic.HistoryMonth(11);
-            payment.AddMoney(new Log() { money=125, message="Украл"});
-            payment.AddMoney(new Log() { money = 125, message = "Аванс" });
-            payment.AddMoney(new Log() { money = 125, message = "Зарплата" });
-            payment.Withdraw(new Log() { money = 24, message = "Купил 10 пачек презиков" });
-            payment.Withdraw(new Log() { money = 12, message="Купил кушать"});
-            payment.AddMoney(new Log() { money = 1500, message = "Отдали долг" });
-                     
-            foreach (var item in payment.GetHistory())
-            {
-                if (item.incoment)
-                { 
-                Console.ForegroundColor = ConsoleColor.Green;
-                }
-                else { Console.ForegroundColor = ConsoleColor.Red; }
-                Console.WriteLine($"Остаток: {item.money} {item.message} Дата: {item.date}");
-                Console.ResetColor();
-            }
-            Console.WriteLine($"Остаток денег:{payment.GetSumm()}$");
-            Console.Write($"Сумма расходов:{historyMonth.SummOutcoming}$") ;
-            Console.Write($"Сумма доходов:{historyMonth.SummIncoming}$");
-            Console.WriteLine($"Разница за месяц составила:{statistic.DifferenceIncoming(12)}$");
-         }
+            CreateWebHost(args).Build().Run();
+        }
+        public static IHostBuilder CreateWebHost(string[] args)
+        {
+            return Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webhost =>
+                {
+                    webhost
+                    .UseStartup<Startup>()
+                    .UseKestrel((hostBuilderContext, options) =>
+                    {
+                        options.Listen(IPAddress.Any, 5000);
+                    });
+                });
+        }
     }
 }
