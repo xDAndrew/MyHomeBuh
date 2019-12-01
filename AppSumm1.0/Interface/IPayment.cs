@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppSumm1._0.Interface;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,5 +11,5 @@ namespace AppSumm1._0
          void AddMoney(Log payment);
          List<Log> GetHistory();
          decimal GetSumm();
-        }
+     }
 }

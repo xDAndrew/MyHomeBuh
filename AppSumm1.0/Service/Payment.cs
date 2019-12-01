@@ -1,4 +1,7 @@
-﻿
+﻿//1. Создать интерфейс IStatistic  и реализовать класс
+//2. Реализовать метод который получает историю платежей номер месяца , возращает  полную сумму затрат и пополней за этот месяц 
+//3. Реализовать метод, который получает историю платежей и возращает разницу между доходом и расходом 
+//4. Создать ветку, комит и пул реквест  
 using AppSumm1._0.Interface;
 using AppSumm1._0.Model;
 using System;
@@ -14,7 +17,7 @@ namespace AppSumm1._0
             Summ = repository.LoadHistory().Summ;
             History = repository.LoadHistory().Logs;
         }
-        private IRepository _repository;
+        private IRepository _repository { get; set; }
         private decimal Summ = 0;
         private List<Log> History = new List<Log>();
         public decimal GetSumm()
@@ -42,5 +45,6 @@ namespace AppSumm1._0
         {
             return History;
         }
+        
     }
 }

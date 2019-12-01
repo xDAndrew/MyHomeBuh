@@ -1,5 +1,5 @@
-﻿using System;
-using System.IO;
+﻿using AppSumm1._0.Service;
+using System;
 namespace AppSumm1._0
 {
     class Program
@@ -8,7 +8,8 @@ namespace AppSumm1._0
         {
            
             IPayment payment = new Payment(new Repository());
-                      
+            var statistic = new Statistic(payment);
+            var historyMonth= statistic.HistoryMonth(11);
             payment.AddMoney(new Log() { money=125, message="Украл"});
             payment.AddMoney(new Log() { money = 125, message = "Аванс" });
             payment.AddMoney(new Log() { money = 125, message = "Зарплата" });
@@ -27,6 +28,9 @@ namespace AppSumm1._0
                 Console.ResetColor();
             }
             Console.WriteLine($"Остаток денег:{payment.GetSumm()}$");
+            Console.Write($"Сумма расходов:{historyMonth.SummOutcoming}$") ;
+            Console.Write($"Сумма доходов:{historyMonth.SummIncoming}$");
+            Console.WriteLine($"Разница за месяц составила:{statistic.DifferenceIncoming(12)}$");
          }
     }
 }
