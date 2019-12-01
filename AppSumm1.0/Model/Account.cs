@@ -6,7 +6,7 @@ namespace AppSumm1._0
      { 
         public decimal money { get; set; }
         public string message { get; set; }
-        public string date = DateTime.Now.ToString();
+        public DateTime date = DateTime.Now;
         public bool incoment { get; set; }
      }
 }
