@@ -23,6 +23,7 @@ namespace AppSumm1._0
             services.AddSingleton<IPayment, Payment>();
             services.AddSingleton<IRepository, Repository>();
             services.AddSingleton<IStatistic, Statistic>();
+            services.AddSingleton<ICategories, Categories>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

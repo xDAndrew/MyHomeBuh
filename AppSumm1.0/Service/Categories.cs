@@ -9,18 +9,26 @@ namespace AppSumm1._0.Service
 {
     public class Categories : ICategories
     {
-        private List<Category> categories;
+        public Categories(IRepository categories)
+        {
+            _categories = categories.LoadCategories().ToList();
+            repository = categories;
+        }
+        private List<Category> _categories;
+        private IRepository repository;
+
         public IEnumerable<Category> GetCategories()
         {
-            return categories;
+            return _categories;
         }
         public void SetCategories(Category category)
         {
-            categories.Add(new Category()
+            _categories.Add(new Category()
             {
                 Id = Guid.NewGuid(),
                 CategoryName = category.CategoryName
             });
+            repository.SaveCategories(_categories);
         }
     }
 }
