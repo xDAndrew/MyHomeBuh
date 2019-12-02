@@ -1,4 +1,5 @@
 ﻿using AppSumm1._0.Interface;
+using AppSumm1._0.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +22,7 @@ namespace AppSumm1._0
             services.AddControllers();
             services.AddSingleton<IPayment, Payment>();
             services.AddSingleton<IRepository, Repository>();
+            services.AddSingleton<IStatistic, Statistic>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
