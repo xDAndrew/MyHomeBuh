@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace AppSumm1._0.Interface
 {
-    public interface ICategorie
+    public interface ICategories
     {
-        void SetCategories(Categorie categorie);
-        List<Categorie> GetCategories();
+        void SetCategories(Category categorie);
+        IEnumerable<Category> GetCategories();
     }
 }

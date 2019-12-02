@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace AppSumm1._0.Model
 {
-    public class Categorie
+    public class Category
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string CategorieName { get; set; }
     }
 }

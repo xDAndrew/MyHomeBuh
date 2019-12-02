@@ -7,17 +7,18 @@ using System.Threading.Tasks;
 
 namespace AppSumm1._0.Service
 {
-    public class Categories : ICategorie
+    public class Categories : ICategories
     {
-        private List<Categorie> categories;
-        public List<Categorie> GetCategories()
+        private List<Category> categories;
+        public IEnumerable<Category> GetCategories()
         {
             return categories;
         }
-        public void SetCategories(Categorie categorie)
+        public void SetCategories(Category categorie)
         {
-            categories.Add(new Categorie()
+            categories.Add(new Category()
             {
+                Id = Guid.NewGuid(),
                 CategorieName = categorie.CategorieName
             });
         }
