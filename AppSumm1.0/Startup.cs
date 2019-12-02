@@ -1,4 +1,5 @@
-﻿using AppSumm1._0.Interface;
+﻿using AppSumm.Infra.EF;
+using AppSumm1._0.Interface;
 using AppSumm1._0.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -24,6 +25,7 @@ namespace AppSumm1._0
             services.AddSingleton<IRepository, Repository>();
             services.AddSingleton<IStatistic, Statistic>();
             services.AddSingleton<ICategories, Categories>();
+            services.AddDbContext<HomeBuhContext>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
