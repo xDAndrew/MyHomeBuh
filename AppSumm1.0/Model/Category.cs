@@ -8,6 +8,6 @@ namespace AppSumm1._0.Model
     public class Category
     {
         public Guid Id { get; set; }
-        public string CategorieName { get; set; }
+        public string CategoryName { get; set; }
     }
 }
