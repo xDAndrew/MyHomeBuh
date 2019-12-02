@@ -32,16 +32,15 @@ namespace AppSumm1._0.Controllers
         }
         [HttpGet]
         [Route("MonthHistory")]
-        public string GetStatistic(int month)
+        public MonthHistory GetStatistic(int month)
         {
-            var history = _statistic.HistoryMonth(month);
-            return $"Сумма доходов: {history.SummIncoming} Сумма расходов:{history.SummOutcoming}";
+            return _statistic.HistoryMonth(month);
         }
         [HttpGet]
         [Route("DifferenceIncoming")]
-        public string GetDifferenceIncoming(int month)
+        public decimal GetDifferenceIncoming(int month)
         {
-           return $"Разница за этот месяц составила: {_statistic.DifferenceIncoming(month)}";
+            return _statistic.DifferenceIncoming(month);
         }
     }
 }
