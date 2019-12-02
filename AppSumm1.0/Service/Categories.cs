@@ -21,12 +21,12 @@ namespace AppSumm1._0.Service
         {
             return _categories;
         }
-        public void SetCategories(Category category)
+        public void SetCategory(string category)
         {
             _categories.Add(new Category()
             {
                 Id = Guid.NewGuid(),
-                CategoryName = category.CategoryName
+                CategoryName = category
             });
             repository.SaveCategories(_categories);
         }

@@ -8,7 +8,7 @@ namespace AppSumm1._0.Interface
 {
     public interface ICategories
     {
-        void SetCategories(Category category);
+        void SetCategory(string category);
         IEnumerable<Category> GetCategories();
     }
 }
