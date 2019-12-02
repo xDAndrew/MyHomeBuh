@@ -14,12 +14,12 @@ namespace AppSumm1._0.Service
         {
             return categories;
         }
-        public void SetCategories(Category categorie)
+        public void SetCategories(Category category)
         {
             categories.Add(new Category()
             {
                 Id = Guid.NewGuid(),
-                CategorieName = categorie.CategorieName
+                CategoryName = category.CategoryName
             });
         }
     }
