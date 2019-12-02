@@ -31,13 +31,13 @@ namespace AppSumm1._0.Controllers
             return _payment.GetSumm();
         }
         [HttpGet]
-        [Route("MonthHistory")]
+        [Route("month")]
         public MonthHistory GetStatistic(int month)
         {
             return _statistic.HistoryMonth(month);
         }
         [HttpGet]
-        [Route("DifferenceIncoming")]
+        [Route("difference")]
         public decimal GetDifferenceIncoming(int month)
         {
             return _statistic.DifferenceIncoming(month);
