@@ -1,5 +1,5 @@
 ﻿using AppSumm1._0.Interface;
-using AppSumm1._0.Model;
+using AppSumm1._0.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;

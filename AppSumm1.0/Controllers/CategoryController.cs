@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using AppSumm1._0.Interface;
-using AppSumm1._0.Model;
-using Microsoft.AspNetCore.Http;
+using AppSumm1._0.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppSumm1._0.Controllers
@@ -13,17 +9,19 @@ namespace AppSumm1._0.Controllers
     [ApiController]
     public class CategoryController : ControllerBase
     {
+        private readonly ICategories _categories;
         public CategoryController(ICategories categories)
         {
             _categories = categories;
         }
-        private readonly ICategories _categories;
+
         [HttpGet]
         [Route("categories")]
         public IEnumerable<Category> GetCategories()
         {
             return _categories.GetCategories();
         }
+
         [HttpPost]
         [Route("category")]
         public void SetCategory(string category)

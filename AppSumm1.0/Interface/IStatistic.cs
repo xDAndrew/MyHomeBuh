@@ -1,4 +1,4 @@
-﻿using AppSumm1._0.Model;
+﻿using AppSumm1._0.Models;
 
 namespace AppSumm1._0.Interface
 {

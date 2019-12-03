@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AppSumm1._0
+namespace AppSumm1._0.Models
 {
      public class Log
      { 
