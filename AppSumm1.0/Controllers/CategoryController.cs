@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using AppSumm1._0.Interface;
-using AppSumm1._0.Model;
+using AppSumm1._0.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AppSumm1._0.Controllers
